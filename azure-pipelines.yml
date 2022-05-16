@@ -19,4 +19,10 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+- task: S3Upload@1
+  inputs:
+    awsCredentials: 'AWSJ'
+    regionName: 'us-east-1'
+    bucketName: 'freetolearn'
+    globExpressions: '**'
     goals: 'package'
